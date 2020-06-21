@@ -2,14 +2,17 @@
 {% load static wagtailcore_tags %}
 
 {% block content %}
-<div class="dt mw8 pv4 pv5-m pv6-ns">
-    <div class="dtc v-mid">
-      <img src="http://tachyons.io/img/super-wide.jpg" alt="A bright blue sky" class="" />
-    </div>
-    <div class="dtc v-mid pl3">
+<div class="flex justify-around pv6 ph4 mw9">
+    <div class="v-mid mw4">
       <h1 class="f-6 lh-copy">
         {{ self.title }}
       </h1>
+      <h3>
+        {{ self.subtitle }}
+      </h3>
+    </div>
+    <div class="v-mid mw7 pl5">
+      <img src="http://tachyons.io/img/super-wide.jpg" alt="A bright blue sky" class="" />
     </div>
   </div>
   <div class="containter ph3 ph5-ns">
