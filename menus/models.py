@@ -1,6 +1,6 @@
 from django.db import models
 
-from django_extensions.db.fields import AutoSlugField
+#from django_extensions.db.fields import AutoSlugField
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import (
@@ -64,7 +64,7 @@ class Menu(ClusterableModel):
     """The main menu clusterable model."""
 
     title = models.CharField(max_length=100)
-    slug = AutoSlugField(populate_from="title", editable=True)
+    slug = models.SlugField(blank=True, null=True, editable=True)
     # slug = models.SlugField()
 
     panels = [
