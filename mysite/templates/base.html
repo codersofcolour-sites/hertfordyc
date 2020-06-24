@@ -1,6 +1,7 @@
 {% load static wagtailuserbar menus_tags %}
 
 {% get_menu "main" as navigation %}
+{% get_menu "footer" as footer %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -38,9 +39,8 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-
-        <ul class="nav nav-tabs" style="background-color: #868e96; color: #4e5d6c; padding: 10px;">
-            <!--
+        <ul class= "pv3 nav nav-tabs" style="background-color:#2B3E50; color: #868e96;">
+        <!--
             <li class="nav-item">
               <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
             </li>
@@ -81,9 +81,18 @@
               <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
             </div>
         </div>
-    -->
-            
-        {% block content %}{% endblock %}
+    --> 
+    
+    {% block content %}{% endblock %}
+    
+        <footer class="pv4 ph3 ph5-m ph6-l mid-gray">
+          <small class="f6 db tc">© 2016 <b class="ttu">SOME COMPANY Inc</b>., All Rights Reserved</small>
+          <div class="tc mt3">
+            {% for item in footer.menu_items.all %}
+              <a class="f6 dib ph2 link mid-gray dim" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+            {% endfor %}
+          </div>
+        </footer>
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
