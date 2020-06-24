@@ -1,2 +1,17 @@
-<a href="http://maps.google.com/?q={{ self.formatted_address }}">Open map (Formatted Address)</a>
-<a href="http://maps.google.com/?q={{ self.latlng_address }}">Open map (Lat/Long Address)</a>
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block content %}
+<h1 class="pv2">{{ self.title }}</h1>
+{{ page.body|richtext }}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.444506973379!2d-0.0722025843315272!3d51.798038079683884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487626ed3f360645%3A0x50d0c68e567f9758!2sPioneer%20Hall%20(aka%20Zoo%20Cafe)!5e0!3m2!1sen!2suk!4v1592965988076!5m2!1sen!2suk" 
+width="600" 
+height="450" 
+frameborder="0" 
+style="border:0;" 
+allowfullscreen="" 
+aria-hidden="false" 
+tabindex="0">
+</iframe>
+{% endblock %}
+
