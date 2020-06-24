@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-    'wagtailgmaps',
 
     'modelcluster',
     'taggit',
@@ -185,8 +184,3 @@ if "AWS_STORAGE_BUCKET_NAME" in env:
         AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
 
     AWS_S3_URL_PROTOCOL = env.get("AWS_S3_URL_PROTOCOL", "https:")
-
-WAGTAIL_ADDRESS_MAP_CENTER = '11 Ware Road, Hertford, SG13 7DZ, England'
-WAGTAIL_ADDRESS_MAP_KEY = 'AIzaSyAH7BwUI92aJzMYB3D57Vvm_mqwVEGyBcg'
-WAGTAIL_ADDRESS_MAP_ZOOM = 8
-WAGTAIL_ADDRESS_MAP_LANGUAGE = 'en'
