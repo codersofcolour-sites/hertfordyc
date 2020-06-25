@@ -51,9 +51,9 @@
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
 
         <nav class="pa3 pa4-ns navbar-dark bg-dark">
-          <a class="link dim white b f6 f5-ns dib mr3" href="#" title="Home">Site Name</a>
+          <a class="link dim b f6 f5-ns dib mr3" style="color:#f1f1f1;" href="#" title="Home">Site Name</a>
           {% for item in navigation.menu_items.all %}
-            <a class="link dim white  f6 f5-ns dib mr3" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+            <a class="link dim  f6 f5-ns dib mr3" style="color: #f1f1f1;" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         </nav>
 
