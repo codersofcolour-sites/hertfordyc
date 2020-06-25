@@ -1,4 +1,4 @@
-{% load static wagtailuserbar menus_tags %}
+{% load static wagtailuserbar wagtailcore_tags define_action menus_tags %}
 
 {% get_menu "main" as navigation %}
 {% get_menu "footer" as footer %}
@@ -57,7 +57,16 @@
           {% endfor %}
         </nav>
 
+    {% pageurl page as url %}
+    {% if url != '/' %}
+        {% define "container ph3 ph5-ns" as class %}
+    {% else %}
+      {% define "" as class %}
+    {% endif %}
+
+    <div class="{{ class }}">
     {% block content %}{% endblock %}
+      </div>
 
         <footer class="pv4 ph3 ph5-m ph6-l moon-gray">
           <small class="f6 db tc">© 2016 <b class="ttu">SOME COMPANY Inc</b>., All Rights Reserved</small>
