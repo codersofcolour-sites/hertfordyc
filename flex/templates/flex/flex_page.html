@@ -8,19 +8,19 @@
 </header>
 </div>
 
-{% for child in self.body %}
-    {% if child.block_type == 'heading' %}
-        <h2>{{ child }}</h2>
-    {% elif child.block_type == 'paragraph' %}
-        <div class="center dt w-100 mw9 pt0 pb5 pv5-m pv6-ns">
-            <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
+<div class="center dt w-100 mw9 pt0 pb5 pv5-m pv6-ns">
+    <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns">
+        {% for child in self.body %}
+            {% if child.block_type == 'heading' %}
+                <h2>{{ child }}</h2>
+            {% elif child.block_type == 'paragraph' %}
                 <p class="lh-copy">
-                     {{ child }}
+                    {{ child }}
                 </p>
-            </div>
-        </div>
-    {% else %}
-        {{ child }}
-    {% endif %}
-{% endfor %}
+            {% else %}
+                {{ child }}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
