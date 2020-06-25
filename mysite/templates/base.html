@@ -2,6 +2,7 @@
 
 {% get_menu "main" as navigation %}
 {% get_menu "footer" as footer %}
+{% pageurl page as url %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -51,13 +52,12 @@
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
 
         <nav class="pa3 pa4-ns navbar-dark bg-dark">
-          <a class="link dim b f6 f5-ns dib mr3" style="color:#f1f1f1;" href="#" title="Home">HYC</a>
+          <a class="link dim b f6 f5-ns dib mr3" style="color:#f1f1f1;" href="/" title="Home">HYC</a>
           {% for item in navigation.menu_items.all %}
             <a class="link dim  f6 f5-ns dib mr3" style="color: #f1f1f1;" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         </nav>
 
-    {% pageurl page as url %}
     {% if url != '/' %}
         {% define "container ph3 ph5-ns" as class %}
     {% else %}
