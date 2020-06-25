@@ -30,66 +30,40 @@
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/superhero/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+        <link rel="stylesheet" type="text/css" media="screen and (max-width: 990px)" href="{% static 'css/mobile.css' %}">
+        <link rel="stylesheet" type="text/css" media="screen and (min-width: 991px)" href="{% static 'css/non_mobile.css' %}">
 
 
         {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
+        
+
         {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-        <ul class= "pv3 nav nav-tabs" style="background-color:#2B3E50; color: #868e96;">
-        <!--
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-            </li>
-            -->
-            {% for item in navigation.menu_items.all %}
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
-                </li>
-            {% endfor %}
-            <!--
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li> 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" style="">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-              </li>
-            -->
-          </ul>
-          <!--
-          <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade show active" id="home">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-            </div>
-            <div class="tab-pane fade" id="profile">
-              <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-            </div>
-            <div class="tab-pane fade" id="dropdown1">
-              <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-            </div>
-            <div class="tab-pane fade" id="dropdown2">
-              <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
-            </div>
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          {% for item in navigation.menu_items.all %}
+            <a href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+          {% endfor %}
         </div>
-    --> 
-    
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span>
+
+        <nav class="pa3 pa4-ns navbar-dark bg-dark">
+          <a class="link dim white b f6 f5-ns dib mr3" href="#" title="Home">Site Name</a>
+          {% for item in navigation.menu_items.all %}
+            <a class="link dim white  f6 f5-ns dib mr3" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+          {% endfor %}
+        </nav>
+
     {% block content %}{% endblock %}
-    
-        <footer class="pv4 ph3 ph5-m ph6-l mid-gray">
+
+        <footer class="pv4 ph3 ph5-m ph6-l moon-gray">
           <small class="f6 db tc">© 2016 <b class="ttu">SOME COMPANY Inc</b>., All Rights Reserved</small>
           <div class="tc mt3">
             {% for item in footer.menu_items.all %}
-              <a class="f6 dib ph2 link mid-gray dim" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+              <a class="f6 dib ph2 link moon-gray dim" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
             {% endfor %}
           </div>
         </footer>
