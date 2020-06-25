@@ -1,12 +1,13 @@
-.rich-text img {
-  max-width: 100%;
-  height: auto;
+.rich-text img.richtext-image.right, .rich-text img.richtext-image.full-width{
+  float: right;
+  clear: left;
+  margin: 1rem;
 }
 
-.rich-text img.richtext-image.right{
-  display: block;
-  margin-left: 0;
-  margin-right: 15px;
+.rich-text img.richtext-image.left{
+  float: left;
+  clear: right;
+  margin: 1rem;
 }
 
 .responsive-object {
@@ -23,9 +24,7 @@
   height: 100%;
 }
 
-.richtext-image.left{
-  align: left;
-}
+
 
 body {
     background-color: #2B3E50;
