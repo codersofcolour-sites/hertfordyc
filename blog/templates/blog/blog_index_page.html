@@ -9,7 +9,7 @@
         </header>
     </div>
     {% for post in blogpages %}
-        {% image post.image fill-320x320 as img %}
+        {% image post.preview_image fill-320x320 as img %}
         <section class="mw7 center">
                 <article class="bt bb b--black-10">
                     <a class="db pv4 ph3 ph0-l no-underline black dim" href="{% pageurl post %}">
