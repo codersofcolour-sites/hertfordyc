@@ -28,7 +28,17 @@ body {
     background-color: #2B3E50;
   }
 
-a:hover{
+a{
+  color: #4E5D6C;
+  text-decoration: underline;
+}  
+
+a:hover {
+  color: #f1f1f1;
+}
+
+
+a.menu:hover{
     color: #2B3E50
 }
 

@@ -46,14 +46,14 @@
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           {% for item in navigation.menu_items.all %}
-            <a href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+            <a class="menu" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         </div>
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9654;</span>
 
         <nav class="pa3 pa4-ns navbar-dark bg-dark">
           {% for item in navigation.menu_items.all %}
-            <a class="link dim  f6 f5-ns dib mr3" style="color: #f1f1f1;" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+            <a class="link dim f6 f5-ns dib mr3 menu" style="color: #f1f1f1;" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         </nav>
 
@@ -71,7 +71,7 @@
           <small class="f6 db tc">© 2016 <b class="ttu">SOME COMPANY Inc</b>., All Rights Reserved</small>
           <div class="tc mt3">
             {% for item in footer.menu_items.all %}
-              <a class="f6 dib ph2 link moon-gray dim" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
+              <a class="f6 dib ph2 link moon-gray dim menu" data-toggle="tab" href="{{ item.link }}" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
             {% endfor %}
           </div>
         </footer>
