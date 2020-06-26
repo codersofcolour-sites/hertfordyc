@@ -1,11 +1,30 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
-    
+{% load wagtailcore_tags wagtailimages_tags %}
+ 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <div class="intro">{{ page.intro|richtext }}</div>
-    {% for post in page.get_children %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-        {{ post.specific.date }}
+    <div class="mw7 center">
+        <header class="bb" style="border-color: #f1f1f1;">
+            <h1 class="ph5 pt5 pb3" style="text-align: center;">{{ page.title }}</h1>
+        </header>
+    </div>
+    {% for post in blogpages %}
+        {% image post.image fill-320x320 as img %}
+        <section class="mw7 center avenir">
+                <article class="bt bb b--black-10">
+                    <a class="db pv4 ph3 ph0-l no-underline black dim" href="{% pageurl post %}">
+                        <div class="flex flex-column flex-row-ns">
+                            <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+                                <img src="{{ img.url }}" class="db" alt="{{ img.alt }}">
+                            </div>
+                        <div class="w-100 w-60-ns pl3-ns">
+                            <h1 class="f3 fw1 baskerville mt0 lh-title">{{ post.title }}</h1>
+                            <p class="f6 f5-l lh-copy">
+                                {{ post.intro }}
+                            </p>
+                            <p class="f6 lh-copy mv0">{{ post.author }} | {{ post.specific.date }}</p>
+                        </div>
+                    </a>
+                </article>
+        </section>
     {% endfor %}
 {% endblock %}
