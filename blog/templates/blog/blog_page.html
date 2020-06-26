@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
-    
+
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
-    {% image page.image fill-320x320 %}
-    <div class="intro">{{ page.intro }}</div>
-    {{ page.body|richtext }}
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+<article>
+    <header class=" sans-serif">
+      <div class="mw9 center pa4 pt5-ns ph7-l">
+        <time class="f6 mb2 dib ttu tracked meta">{{ page.date }}</time>
+        <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
+          <span class="bg-black-90 lh-copy white pa1 tracked-tight" style="display:inline;">
+            {{ page.title }}
+          </span>
+        </h3>
+        <h4 class="f3 fw1 georgia i">{{ page.subtitle }}</h4>
+        <h5 class="f4 ttu tracked black-80">{{ page.author }}</h5>
+      </div>
+    </header>
+    <div class="pa4 ph7-l georgia mw9-l center">
+        <p class="f3 f3-ns lh-copy measure georgia">
+            {{ page.intro }}
+        </p>
+        <div class="f4 f4-ns lh-copy measure mb4">
+            {{ page.body|richtext }}
+        </div>
+        <p class="f4 f3-ns lh-copy measure"><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    </div>
+</article>
 {% endblock %}

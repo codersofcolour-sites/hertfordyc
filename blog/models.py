@@ -22,6 +22,7 @@ class BlogIndexPage(Page):
     
 
 class BlogPage(Page):
+    author = models.CharField(max_length=100, default="")
     date = models.DateField("Post date")
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -29,12 +30,15 @@ class BlogPage(Page):
         blank=True,
         on_delete=models.SET_NULL
     )
+    subtitle = models.CharField(max_length=150, blank=True, default="")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     
     content_panels = Page.content_panels + [
+        FieldPanel('author'),
         FieldPanel('date'),
         ImageChooserPanel('image'),
+        FieldPanel('subtitle'),
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
     ]
