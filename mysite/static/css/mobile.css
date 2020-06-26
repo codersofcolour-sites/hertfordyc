@@ -38,7 +38,9 @@ body {
   }
   
   span{
-      padding: 1rem;
+      padding: 1.25rem;
+      display: block;
+      background-color: #4E5D6C;
   }
 
   @media screen and (max-height: 450px) {
