@@ -3,9 +3,16 @@
 {% load wagtailcore_tags %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p>
-        {{ self.thank_you_text|richtext }}
-    </p>
+
+<div class="mw7 center">
+    <header class="bb" style="border-color: #f1f1f1;">
+        <h1 class="ph5 pt5 pb3" style="text-align: center;">{{ page.title }}</h1>
+    </header>
+    <div class="center dt w-100 mw9 pt0 pb5 pv5-m pv6-ns">
+        <div class="db dtc-ns v-mid ph2 pr0-ns pl3-ns" style="text-align: center;">
+            {{ self.thank_you_text|richtext }}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

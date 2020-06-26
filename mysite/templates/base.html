@@ -49,7 +49,7 @@
             <a class="menu" href="{{ item.link }}" data-toggle="tab" {% if item.open_in_new_tab %} target="_blank"{% endif %}>{{ item.title }}</a>
           {% endfor %}
         </div>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9654;</span>
+        <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9654;</span>
 
         <nav class="pa3 pa4-ns navbar-dark bg-dark">
           {% for item in navigation.menu_items.all %}
