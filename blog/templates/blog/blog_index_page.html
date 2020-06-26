@@ -5,11 +5,12 @@
     <div class="mw7 center">
         <header class="bb" style="border-color: #f1f1f1;">
             <h1 class="ph5 pt5 pb3" style="text-align: center;">{{ page.title }}</h1>
+            <div>{{ page.intro|richtext }}</div>
         </header>
     </div>
     {% for post in blogpages %}
         {% image post.image fill-320x320 as img %}
-        <section class="mw7 center avenir">
+        <section class="mw7 center">
                 <article class="bt bb b--black-10">
                     <a class="db pv4 ph3 ph0-l no-underline black dim" href="{% pageurl post %}">
                         <div class="flex flex-column flex-row-ns">

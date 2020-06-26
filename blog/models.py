@@ -37,7 +37,7 @@ class BlogIndexPage(Page):
 class BlogPage(Page):
     author = models.CharField(max_length=100, default="")
     date = models.DateField("Post date")
-    background_image = models.ForeignKey(
+    preview_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         on_delete=models.SET_NULL
@@ -49,7 +49,7 @@ class BlogPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('author'),
         FieldPanel('date'),
-        ImageChooserPanel('background_image'),
+        ImageChooserPanel('preview_image'),
         FieldPanel('subtitle'),
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
