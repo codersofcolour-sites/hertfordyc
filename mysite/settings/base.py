@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'menus',
     'contact',
     'map',
+    'streams',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -184,3 +185,8 @@ if "AWS_STORAGE_BUCKET_NAME" in env:
         AWS_S3_CUSTOM_DOMAIN = env["AWS_S3_CUSTOM_DOMAIN"]
 
     AWS_S3_URL_PROTOCOL = env.get("AWS_S3_URL_PROTOCOL", "https:")
+
+EMAIL_HOST = env('MAILGUN_SMTP_SERVER', '')
+EMAIL_PORT = env('MAILGUN_SMTP_PORT', '')
+EMAIL_HOST_USER = env('MAILGUN_SMTP_LOGIN', '')
+EMAIL_HOST_PASSWORD = env('MAILGUN_SMTP_PASSWORD', '')
