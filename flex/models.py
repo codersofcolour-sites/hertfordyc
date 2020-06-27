@@ -15,6 +15,7 @@ class FlexPage(Page):
         ('heading', blocks.CharBlock(icon="title", null=True, blank=True)),
         ('paragraph', blocks.RichTextBlock(icon="pilcrow", null=True, blank=True)),
         ('embed', EmbedBlock(icon="media", null=True, blank=True)),
+        ('embed_HTML', blocks.RawHTMLBlock(required=False, help_text="use this to embed elements that do not embed using the normal embed block, e.g. google forms", null=True, blank=True))
     ], null=True, blank=True)
 
     content_panels = Page.content_panels + [

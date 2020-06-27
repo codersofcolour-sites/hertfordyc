@@ -14,11 +14,11 @@
             {% if child.block_type == 'heading' %}
                 <h2>{{ child }}</h2>
             {% elif child.block_type == 'paragraph' %}
-                <p class="lh-copy">
+                <div class="lh-copy">
                     {{ child }}
-                </p>
+                </div>
             {% else %}
-                {{ child }}
+                <div class="pb5">{{ child }}</div>
             {% endif %}
         {% endfor %}
     </div>
