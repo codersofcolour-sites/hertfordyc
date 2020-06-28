@@ -16,7 +16,7 @@
                         </a>
                     {% elif card.button_url %}
                         <a href=" {{ card.button_url }}" class="btn btn-secondary">
-                            something here external
+                            {{ card.button_url_title }}
                         </a>
                     {% endif %}
             </div>
