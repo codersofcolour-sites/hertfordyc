@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<div class="card-deck">
+<div class="card-columns">
 {% for card in self.cards %}
     {% image card.image max-320x320 as img%}
-        <div class="card">
+        <div class="card" style="display: inline-block;">
             <img src="{{img.url}}" alt="{{img.alt}}" class="card-img-top"/>
             <div class="card-body">
                 <h5 class="card-title">{{ card.title }}</h5>
@@ -23,5 +23,4 @@
         </div> 
 {% endfor %}
 </div>
-
 {% endblock %}
