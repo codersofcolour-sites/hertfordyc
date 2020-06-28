@@ -69,5 +69,9 @@ iframe{
 
 .btn-secondary{
   color: #f1f1f1;
-  background-color: #2b3e50;
+  background-color: #39444e;
+}
+
+.btn-secondary:hover{
+  color: #2B3E50;
 }
