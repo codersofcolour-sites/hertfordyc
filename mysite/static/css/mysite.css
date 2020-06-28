@@ -70,6 +70,7 @@ iframe{
 .btn-secondary{
   color: #f1f1f1;
   background-color: #39444e;
+  text-decoration: none;
 }
 
 .btn-secondary:hover{
