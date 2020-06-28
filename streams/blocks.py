@@ -11,7 +11,7 @@ class CardBlock(blocks.StructBlock):
                ('text', blocks.TextBlock(required=True, max_length=200)),
                ('button_page', blocks.PageChooserBlock(required=False)),
                ('button_url', blocks.URLBlock(required=False, help_text="use if you want to go to external links")),
-               ('button_url_title', blocks.CharBlock(required=False, max_length=40, help_text="if you have an external link, give the button for it a title.")),
+               ('button_title', blocks.CharBlock(required=False, max_length=40, help_text="Give your button a title")),
             ]
         )
     )
