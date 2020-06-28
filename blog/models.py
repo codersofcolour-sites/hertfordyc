@@ -8,6 +8,10 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class BlogIndexPage(Page):
+    max_count = 1
+    subpage_types =['blog.BlogPage',
+    'flex.FlexPage',]
+
     intro = RichTextField(blank=True)
     
     content_panels = Page.content_panels + [
@@ -35,6 +39,7 @@ class BlogIndexPage(Page):
     
 
 class BlogPage(Page):
+    subpage_types = []
     author = models.CharField(max_length=100, default="")
     date = models.DateField("Post date")
     preview_image = models.ForeignKey(

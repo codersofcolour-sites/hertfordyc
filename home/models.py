@@ -5,6 +5,11 @@ from wagtail.images.edit_handlers import ImageChooserPanel
     
     
 class HomePage(Page):
+    subpage_types = ['blog.BlogIndexPage', 
+    'contact.ContactPage',
+     'flex.FlexPage',]
+    max_count = 1
+
     background_image =  models.ForeignKey(
         'wagtailimages.Image',
         related_name="background_image",
