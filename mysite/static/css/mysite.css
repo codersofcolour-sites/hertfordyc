@@ -66,3 +66,8 @@ iframe{
   margin-right: auto;
   margin-left: auto;
 }
+
+.btn-secondary{
+  color: #f1f1f1;
+  background-color: #2b3e50;
+}
