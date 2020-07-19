@@ -5,6 +5,10 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.core import blocks
+from wagtail.embeds.blocks import EmbedBlock
 
 
 class BlogIndexPage(Page):
@@ -49,7 +53,12 @@ class BlogPage(Page):
     )
     subtitle = models.CharField(max_length=150, blank=True, default="")
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    body = StreamField([
+        ('heading', blocks.CharBlock(icon="title", null=True, blank=True)),
+        ('paragraph', blocks.RichTextBlock(icon="pilcrow", null=True, blank=True)),
+        ('embed', EmbedBlock(icon="media", null=True, blank=True)),
+        ('embed_HTML', blocks.RawHTMLBlock(required=False, help_text="use this to embed elements that do not embed using the normal embed block, e.g. google forms", null=True, blank=True)),
+    ], null=True, blank=True)
     
     content_panels = Page.content_panels + [
         FieldPanel('author'),
@@ -57,5 +66,5 @@ class BlogPage(Page):
         ImageChooserPanel('preview_image'),
         FieldPanel('subtitle'),
         FieldPanel('intro'),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body', classname="full"),
     ]
