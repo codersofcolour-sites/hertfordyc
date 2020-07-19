@@ -23,7 +23,7 @@ class BlogIndexPage(Page):
         live_blogpages = self.get_children().live()
         all_posts = BlogPage.objects.live().public().order_by('-first_published_at')
 
-        paginator = Paginator(all_posts, 2)
+        paginator = Paginator(all_posts, 8)
 
         page = request.GET.get("page")
         try:
